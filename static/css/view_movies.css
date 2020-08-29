@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 body {
-  background-color: #dadada;
+  background-color: #eff5fb;
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -14,6 +14,8 @@ div.table-title {
   max-width: 232px;
   padding: -20px;
   width: 100%;
+  margin-bottom: 30px;
+  margin-top: 60px;
 }
 
 .table-title h3 {
@@ -24,6 +26,8 @@ div.table-title {
   font-family: "Roboto", helvetica, arial, sans-serif;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
+  margin-top: -280px;
+  margin-left: 350px;
 }
 
 /*** Table Styles **/
@@ -39,11 +43,13 @@ div.table-title {
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
+  margin-top: 140px;
+  margin-left: -1240px;
 }
 
 th {
   color: #d5dde5;
-  background: #117474;
+  background: darkmagenta;
   border-bottom: 4px solid #9ea7af;
   border-right: 1px solid #343a45;
   font-size: 18px;
@@ -105,7 +111,7 @@ tr:last-child td:last-child {
 td {
   font-family:verdana;
   background: #ffffff;
-  padding: 20px;
+  /* padding: 20px; */
   text-align: left;
   vertical-align: middle;
   font-weight: 300;
@@ -146,7 +152,11 @@ td.text-right {
 input.searchBox {
   width: 851px;
   padding: 9px;
-  margin-bottom: 15px;
+  margin-bottom: 313px;
+  position: relative;
+  margin: 150px;
+  margin-top: -100px;
+  color:black;
 }
 
 form#searchForm {
@@ -162,4 +172,23 @@ form#searchForm {
 .bottomTable {
   position: absolute;
   bottom: 10px;
+}
+
+.btn {
+	display: block;
+	width: 140px;
+  height: 40px;
+	background: darkmagenta;
+	color: #fff;
+	border-radius: 3px;
+	border: 0;
+	box-shadow: 0 3px 0 0 hotpink;
+	transition: all 0.3s ease-in-out;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.btn:hover {
+	background: rebeccapurple;
+	box-shadow: 0 3px 0 0 deeppink;
 }

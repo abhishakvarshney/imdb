@@ -73,6 +73,7 @@ def add_movie(request):
             json_data = json.loads(json_data)
             for movie_data in json_data:
                 movie = models.Movies.add_movie(**movie_data)
+        return HttpResponseRedirect(reverse('movie:view'))
     form = UploadJSONFileForm()
     return render(request, "add_movies.html", {'form': form})
 
@@ -82,10 +83,21 @@ def add_movie(request):
 # @permission_required('auth.admin')
 def update_movie(request, data):
     if request.method == "GET":
-        # data = json.loads(request.body.decode("utf-8"))
         data = ast.literal_eval(data)
-        movie_update = models.Movies.update_movies(data)
-        print("get movie_activity response = " + str(data), type(data))
+        if len(request.GET) > 0:
+            movie_data = request.GET
+            movie_data._mutable = True
+            if movie_data.get('name') in  ['', None]:
+                movie_data['name'] = data.get('name', '')
+            if movie_data.get('director') in ['', None]:
+                movie_data['director'] = data.get('director', '')
+            if movie_data.get('imdb_score') in ['', None]:
+                movie_data['imdb_score'] = data.get('imdb_score', '')
+            if movie_data.get('popularity') in ['', None]:
+                movie_data['popularity'] = data.get('popularity', '')
+            if movie_data.get('genre') in ['', None]:
+                movie_data['genre'] = data.get('genre', '')
+            movie_update = models.Movies.update_movies(movie_data)
         if isinstance(data, dict):
             data = [data]
         return render(request, "update_movies.html", {'movie_list': data})
@@ -95,12 +107,6 @@ def update_movie(request, data):
 @parser_classes([JSONParser, MultiPartParser, FormParser])
 # @permission_required('auth.admin')
 def delete_movie(request, movie_name):
-    # data = json.loads(request.body.decode("utf-8"))
-    # validate_request, error_msg = validate_add_movie_activity(request)
-    # if not validate_request:
-        # log.error(error_msg)
-        # return JsonResponse(error_msg)
-    # movie_name = data.get('name')
     if movie_name is not None:
         is_deleted = models.Movies.delete_movies(movie_name)
     if is_deleted:
@@ -110,6 +116,6 @@ def delete_movie(request, movie_name):
 
 @parser_classes([JSONParser, MultiPartParser, FormParser])
 def search_movie(request):
-    movie_name = request.GET['q']
+    movie_name = request.GET.get('q', '')
     movie_list = models.Movies.search_movie(movie_name)
     return render(request, "view_movies.html", {'movie_list': movie_list, 'range': range(1, len(movie_list))})

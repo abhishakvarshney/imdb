@@ -14,13 +14,15 @@
     background: white;
     border-radius: 3px;
     border-collapse: collapse;
-    height: 420px;
+    height: 485px;
     margin: auto;
     max-width: 600px;
-    padding: 5px;
+    padding: 35px;
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     animation: float 5s infinite;
+    margin-top: 75px;
+    margin-left: 380px;
 }
 
 div.table-title {
@@ -41,4 +43,28 @@ div.table-title {
     font-family: "Roboto", helvetica, arial, sans-serif;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     text-transform: uppercase;
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -70px;
+
+}
+
+.btn {
+	display: block;
+	width: 140px;
+    height: 40px;
+	background: darkmagenta;
+	color: #fff;
+	border-radius: 3px;
+	border: 0;
+	box-shadow: 0 3px 0 0 hotpink;
+	transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    margin-left: 190px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+	background: rebeccapurple;
+	box-shadow: 0 3px 0 0 deeppink;
 }

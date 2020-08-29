@@ -14,21 +14,36 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/materialForm.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet" />
     <!-- Core CSS -->
     <link href="{% static 'css/view_movies.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/materialForm.css' %}" rel="stylesheet" />
   </head>
-  <body>
+  <body class="move-area">
     <div class="logoutWrap">
-      <a href="{% url 'movie:add' %}"><button type="button" class="btn btn-info">Add</button></a>
-      <a href="{% url 'movie:login' %}"><button type="button" class="btn btn-dark">Login</button></a>
+      <a href="{% url 'movie:add' %}"
+        ><button type="button" class="btn btn-info">Add</button></a
+      >
+      <a href="{% url 'movie:login' %}"
+        ><button type="button" class="btn btn-secondary">Login</button></a
+      >
     </div>
     <div class="table-title">
       <h3>Movies Details</h3>
     </div>
-    <form id="searchForm" name="search" method="GET" action="{% url 'movie:search' %}">
-      <input type="text" name="q" class="searchBox" placeholder="Search.." />
+    <form
+      id="searchForm"
+      name="search"
+      method="GET"
+      action="{% url 'movie:search' %}"
+    >
+      <input
+        type="text"
+        name="q"
+        class="searchBox"
+        placeholder="Search using movie name...."
+      />
     </form>
     <table class="table-fill">
       <thead>
@@ -53,7 +68,7 @@
           <td class="text-center">{{ data.imdb_score }}</td>
           <td class="text-center action">
             <a href="{% url 'movie:update' data %}"
-              ><i style="margin-right:10px" class="fa fa-edit"></i
+              ><i style="margin-right: 10px" class="fa fa-edit"></i
             ></a>
             <a href="{% url 'movie:delete' data.name %}"
               ><i class="fa fa-trash"></i

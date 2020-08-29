@@ -11,10 +11,12 @@
     />
 
     <!-- Core CSS -->
+    <link href="{% static 'css/materialForm.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/add_movie.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet" />
   </head>
-  <body>
+  <body class="move-area">
     <form action="" method="post" id="UploadForm" enctype="multipart/form-data">
       {% csrf_token %}
       <header class="" id="header">
@@ -24,15 +26,15 @@
         </div>
         <div class="frame">
           <div class="center">
-            <div class="bar"></div>
+            <!-- <div class="bar"></div> -->
             <div class="title">Drop JSON file to upload</div>
             <div class="content dropzone filename">
               <div class="content">
                 <img
                   src="https://100dayscss.com/codepen/upload.svg"
-                  class="upload"
+                  class="upload-icon"
                 />
-                <span class="filename"><label for="file">Filename:</label></span>
+                <span class="filename"><label for="file">JSON File</label></span>
               </div>
             </div>
             <img
@@ -43,7 +45,7 @@
               src="https://100dayscss.com/codepen/checkmark.svg"
               class="done"
             />
-            <input type="file" style="display:none" class="input" name="file" id="file" />
+            <input type="file" style="display:none" class="upload-input" name="file" id="file" />
             <div class="upload-btn" type="submit" name="submit">Upload</div>
           </div>
         </div>
@@ -52,6 +54,10 @@
     <script
       type="text/javascript"
       src="{% static 'js/jquery.min.js' %}"
+    ></script>
+    <script
+     type="text/javascript"
+      src="{% static 'js/movingeye.js'  %}"
     ></script>
     <script
       type="text/javascript"

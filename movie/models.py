@@ -84,7 +84,6 @@ class Movies(models.Model):
         imdb_score = data.get("imdb_score", ""),
         popularity = data.get('99popularity', ''),
         genre = data.get('genre', ''))
-        # movies.save()
         return True
 
     @staticmethod
@@ -94,10 +93,13 @@ class Movies(models.Model):
         @param movie_name:
         @return:
         """
-        movies_data = Movies.objects.get(name=movie_name)
-        movies_data.isActive = False
-        print("MOVIE DELETED SUCCESSFULLY", movie_name)
-        movies_data.save()
+        movies_data = Movies.objects.filter(name=movie_name, isActive=True)
+        count=0
+        for movie in movies_data:
+            if count == 0:
+                movie.isActive = False
+                movie.save()
+                count+=1
         return True
 
     @staticmethod
@@ -107,13 +109,14 @@ class Movies(models.Model):
         @param movie_data:
         @return:
         """
-        movie_data = Movies.objects.get(name=data.get('name'))
-        movie_data.name = data.get('name', movie_data.name)
-        movie_data.director = data.get('director', movie_data.director)
-        movie_data.imdb_score = data.get('imdb_score', movie_data.imdb_score)
-        movie_data.popularity = data.get('popularity', movie_data.popularity)
-        movie_data.genre = data.get('genre', movie_data.genre)
-        movie_data.save()
+        movies_data = Movies.objects.filter(name=data.get('name'), isActive=True)
+        for movie_data in movies_data:
+            movie_data.name = data.get('name', movie_data.name)
+            movie_data.director = data.get('director', movie_data.director)
+            movie_data.imdb_score = data.get('imdb_score', movie_data.imdb_score)
+            movie_data.popularity = data.get('popularity', movie_data.popularity)
+            movie_data.genre = data.get('genre', movie_data.genre)
+            movie_data.save()
         return True
 
     @staticmethod
@@ -123,7 +126,7 @@ class Movies(models.Model):
         @param movie_data:
         @return:
         """
-        response_dict = Movies.objects.filter(name__unaccent__lower__trigram_similar=movie_name)
+        response_dict = Movies.objects.filter(name__contains=movie_name, isActive=True)
         data_list = []
         for data in response_dict:
             movie_data = {}
@@ -140,6 +143,9 @@ class Movies(models.Model):
                 movie_data['genre'] = ', '.join(data.genre)
             data_list.append(movie_data)
         return data_list
+
+
+
 # class Users(models.Model):
 #     """
 #     @return:
