@@ -77,7 +77,7 @@ def add_movie(request):
     return render(request, "add_movies.html", {'form': form})
 
 
-@api_view(["GET"])
+# @api_view(["GET"])
 @parser_classes([JSONParser, MultiPartParser, FormParser])
 # @permission_required('auth.admin')
 def update_movie(request, data):
