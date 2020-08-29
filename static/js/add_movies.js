@@ -43,10 +43,9 @@ function startUpload() {
 		$syncing.addClass('active');
 		$done.addClass('active');
 		$bar.addClass('active');
-		timeoutID = window.setTimeout(showDone, 3200);
+		document.getElementById('UploadForm').submit();
+	}else{
+		alert("invalid File")
 	}
 }
 
-function showDone() {
-	$button.html('Done');
-}

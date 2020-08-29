@@ -172,3 +172,10 @@
     opacity: 1;
   }
 }
+
+
+.logoutWrap {
+  top: 16px;
+  right: 25px;
+  position: absolute;
+}

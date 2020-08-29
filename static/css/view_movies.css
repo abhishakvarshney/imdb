@@ -141,3 +141,14 @@ td.text-center {
 td.text-right {
   text-align: right;
 }
+
+
+input.searchBox {
+  width: 851px;
+  padding: 9px;
+  margin-bottom: 15px;
+}
+
+form#searchForm {
+  text-align: center;
+}
