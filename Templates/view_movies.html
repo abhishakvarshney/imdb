@@ -22,12 +22,20 @@
   </head>
   <body class="move-area">
     <div class="logoutWrap">
-      <a href="{% url 'movie:add' %}"
-        ><button type="button" class="btn btn-info">Add</button></a
-      >
-      <a href="{% url 'movie:login' %}"
-        ><button type="button" class="btn btn-secondary">Login</button></a
-      >
+      {% if perm %}
+        <a href="{% url 'movie:add' %}"
+          ><button type="button" class="btn btn-info">Add</button></a
+        >
+      {% endif %}
+      {% if user_active %}
+        <a href="{% url 'movie:logout' %}"
+          ><button type="button" class="btn btn-secondary">Logout</button></a
+        >
+      {% else %}
+        <a href="{% url 'movie:login' %}"
+          ><button type="button" class="btn btn-secondary">Login</button></a
+        >
+      {% endif %}
     </div>
     <div class="table-title">
       <h3>Movies Details</h3>
@@ -54,7 +62,9 @@
           <th class="text-center">Genre</th>
           <th class="text-center">Popularity</th>
           <th class="text-center">IMDB Rating</th>
-          <th class="text-center">Action</th>
+          {% if perm %}
+            <th class="text-center">Action</th>
+          {% endif %}
         </tr>
       </thead>
       <tbody class="table-hover">
@@ -66,14 +76,16 @@
           <td class="text-center">{{ data.genre }}</td>
           <td class="text-center">{{ data.popularity }}</td>
           <td class="text-center">{{ data.imdb_score }}</td>
-          <td class="text-center action">
-            <a href="{% url 'movie:update' data %}"
-              ><i style="margin-right: 10px" class="fa fa-edit"></i
-            ></a>
-            <a href="{% url 'movie:delete' data.name %}"
-              ><i class="fa fa-trash"></i
-            ></a>
-          </td>
+          {% if perm %}
+            <td class="text-center action">
+              <a href="{% url 'movie:update' data %}"
+                ><i style="margin-right: 10px" class="fa fa-edit"></i
+              ></a>
+              <a href="{% url 'movie:delete' data.name %}"
+                ><i class="fa fa-trash"></i
+              ></a>
+            </td>
+          {% endif %}
         </tr>
         {% endfor %}
       </tbody>
