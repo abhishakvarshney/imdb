@@ -1,0 +1,322 @@
+/* Material Form CSS */
+.material-form .form-radio,
+.material-form .form-group {
+  position: relative;
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.material-form .form-inline > .form-group,
+.material-form .form-inline > .btn {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.material-form .form-help {
+  margin-top: 0.125rem;
+  margin-left: 0.125rem;
+  color: #b3b3b3;
+  font-size: 0.8rem;
+}
+.material-form .checkbox .form-help, .material-form .form-radio .form-help, .material-form .form-group .form-help {
+  position: absolute;
+  width: 100%;
+}
+.material-form .checkbox .form-help {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.material-form .form-radio .form-help {
+  padding-top: 0.25rem;
+  margin-top: -1rem;
+}
+
+.material-form .form-group input {
+  height: 1.9rem;
+}
+.material-form .form-group textarea {
+  resize: none;
+}
+.material-form .form-group select {
+  width: 100%;
+  font-size: 1rem;
+  height: 1.6rem;
+  padding: 0.125rem 0.125rem 0.0625rem;
+  background: none;
+  border: none;
+  line-height: 1.6;
+  box-shadow: none;
+}
+.material-form .form-group .control-label {
+  position: absolute;
+  top: -20px;
+  pointer-events: none;
+  padding-left: 0.125rem;
+  z-index: 1;
+  color: rgba(5,47,95,1);
+  font-size: 1rem;
+  font-weight: normal;
+  -webkit-transition: all 0.28s ease;
+  transition: all 0.28s ease;
+}
+.material-form .form-group .bar {
+  position: relative;
+  border-bottom: 0.0625rem solid #999;
+  display: block;
+}
+.material-form .form-group .bar::before {
+  content: '';
+  height:1px;
+  width: 0;
+  left: 50%;
+  bottom: -0.0625rem;
+  position: absolute;
+  background: rgba(5,47,95,1);
+  -webkit-transition: left 0.28s ease, width 0.28s ease;
+  transition: left 0.28s ease, width 0.28s ease;
+  z-index: 2;
+}
+.material-form .form-group input,
+.material-form .form-group textarea {
+  display: block;
+  background: none;
+  padding: 0.125rem 0.125rem 0.0625rem;
+  font-size: 1rem;
+  border-width: 0;
+  border-color: transparent;
+  line-height: 1.9;
+  width: 100%;
+  color: rgba(5,47,95,0.6);
+  -webkit-transition: all 0.28s ease;
+  transition: all 0.28s ease;
+  box-shadow: none;
+}
+.material-form .form-group input[type="file"] {
+  line-height: 1;
+}
+.material-form .form-group input[type="file"] ~ .bar {
+  display: none;
+}
+.material-form .form-group select,
+.material-form .form-group input:valid,
+.material-form .form-group input.form-file,
+.material-form .form-group input.has-value,
+.material-form .form-group textarea:valid,
+.material-form .form-group textarea.form-file,
+.material-form .form-group textarea.has-value {
+  color: rgba(5,47,95,1);
+  font-weight: 600;
+}
+.material-form .form-group select ~ .control-label,
+.material-form .form-group input:focus ~ .control-label,
+.material-form .form-group input:valid ~ .control-label,
+.material-form .form-group input.form-file ~ .control-label,
+.material-form .form-group input.has-value ~ .control-label,
+.material-form .form-group textarea:focus ~ .control-label,
+.material-form .form-group textarea:valid ~ .control-label,
+.material-form .form-group textarea.form-file ~ .control-label,
+.material-form .form-group textarea.has-value ~ .control-label {
+  font-size: 0.8rem;
+  color: rgba(95,122,153,0.6);
+  top: -20px;
+  left: 0;
+}
+.material-form .form-group select:focus,
+.material-form .form-group input:focus,
+.material-form .form-group textarea:focus {
+  outline: none;
+}
+.material-form .form-group select:focus ~ .bar::before,
+.material-form .form-group input:focus ~ .bar::before,
+.material-form .form-group textarea:focus ~ .bar::before {
+  width: 100%;
+  left: 0;
+}
+
+.material-form .checkbox label,
+.material-form .form-radio label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 2rem;
+  text-align: left;
+  color: rgba(5,47,95,1);
+  display: block;
+  font-size:14px;
+}
+.material-form .checkbox input,
+.material-form .form-radio input {
+  width: auto;
+  opacity: 0.00000001;
+  position: absolute;
+  left: 0;
+}
+
+.material-form .radio {
+  margin-bottom: 1rem;
+}
+.material-form .radio i.helper {
+  position: absolute;
+  top: 0;
+  left: -0.25rem;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #999;
+}
+.material-form .radio i.helper::before, .material-form .radio i.helper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  -webkit-transition: -webkit-transform 0.28s ease;
+  transition: -webkit-transform 0.28s ease;
+  transition: transform 0.28s ease;
+  transition: transform 0.28s ease, -webkit-transform 0.28s ease;
+  border-radius: 50%;
+  border: 1px solid #999;
+}
+.material-form .radio i.helper::after {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  background-color: rgba(5,47,95,1);
+  border-color: rgba(5,47,95,1);
+}
+.material-form .radio label:hover i.helper {
+  color: rgba(5,47,95,1);
+}
+.material-form .radio input:checked ~ i.helper::after {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+.material-form .radio input:checked ~ i.helper::before {
+  color: rgba(5,47,95,1);
+}
+.material-form .radio input:checked ~ span{font-weight: 600;}
+
+.material-form .checkbox {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.material-form .checkbox i.helper {
+  color: #999;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  z-index: 0;
+  border: 1px solid #999;
+  border-radius: 0.0625rem;
+  -webkit-transition: border-color 0.28s ease;
+  transition: border-color 0.28s ease;
+}
+.material-form .checkbox i.helper::before, .checkbox i.helper::after {
+  position: absolute;
+  height: 0;
+  width: 0.2rem;
+  background-color: rgba(5,47,95,1);
+  display: block;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  border-radius: 0.25rem;
+  content: '';
+  -webkit-transition: opacity 0.28s ease, height 0s linear 0.28s;
+  transition: opacity 0.28s ease, height 0s linear 0.28s;
+  opacity: 0;
+}
+.material-form .checkbox i.helper::before {
+  top: 0.65rem;
+  left: 0.38rem;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  box-shadow: 0 0 0 0.0625rem #fff;
+}
+.material-form .checkbox i.helper::after {
+  top: 0.3rem;
+  left: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.material-form .checkbox label:hover i.helper {
+  color: rgba(5,47,95,1);
+}
+.material-form .checkbox input:checked ~ i.helper {
+  color: rgba(5,47,95,1);
+}
+.material-form .checkbox input:checked ~ i.helper::after, .material-form .checkbox input:checked ~ i.helper::before {
+  opacity: 1;
+  -webkit-transition: height 0.28s ease;
+  transition: height 0.28s ease;
+}
+.material-form .checkbox input:checked ~ i.helper::after {
+  height: 0.5rem;
+}
+.material-form .checkbox input:checked ~ i.helper::before {
+  height: 1.2rem;
+  -webkit-transition-delay: 0.28s;
+          transition-delay: 0.28s;
+}
+
+.material-form .radio + .radio,
+.material-form .checkbox + .checkbox {
+  margin-top: 1rem;
+}
+
+.material-form .form-help .error-holder,
+.material-form .has-error.has-success .form-help .error-holder,
+.material-form .has-error .note-holder
+{display: none;}
+.material-form .has-error .error-holder{display: block; color: #d9534f;}
+.material-form .form-help p
+{font-size:0.8rem; line-height: initial;}
+
+
+.material-form .has-error .legend.legend, 
+.material-form .has-error.form-group .control-label.control-label {
+  color: #d9534f;
+}
+.material-form .has-error.form-group .form-help,
+.material-form .has-error.form-group i.helper, .material-form .has-error.checkbox .form-help,
+.material-form .has-error.checkbox i.helper, .material-form .has-error.radio .form-help,
+.material-form .has-error.radio i.helper, .material-form .has-error.form-radio .form-help,
+.material-form .has-error.form-radio i.helper {
+  color: #d9534f;
+}
+.material-form .has-error .bar::before {
+  background: #d9534f;
+  left: 0;
+  width: 100%;
+}
+
+.material-form .button {
+  position: relative;
+  background: rgba(245,166,35,1);
+  border: 1px solid rgba(245,166,35,1);
+  font-size: 18px;
+  width: 100%;
+  color: #fff;
+  margin: 3rem 0;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+ 
+}
+.material-form .button span {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.material-form .button:hover {
+  color: #fff;
+  background-color: rgba(245,166,35,1) !important;
+}
+.material-form .button:focus {
+  outline: none;
+}

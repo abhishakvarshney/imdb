@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  {%load static %}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add Movies</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+      rel="stylesheet"
+    />
+
+    <!-- Core CSS -->
+    <link href="{% static 'css/add_movie.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="file">Filename:</label>
+      <input type="file" name="file" id="file" />
+      <br />
+      <input type="submit" name="submit" value="Upload" />
+
+      <!-- <header class="" id="header">
+        <div class="frame">
+          <div class="center">
+            <div class="bar"></div>
+            <div class="title">Drop JSON file to upload</div>
+            <div class="dropzone">
+              <div class="content">
+                <img
+                  src="https://100dayscss.com/codepen/upload.svg"
+                  class="upload"
+                />
+                <span class="filename"><label for="file">Filename:</label></span>
+                <input type="file" class="input" name="file" id="file" />
+              </div>
+            </div>
+            <img
+              src="https://100dayscss.com/codepen/syncing.svg"
+              class="syncing"
+            />
+            <img
+              src="https://100dayscss.com/codepen/checkmark.svg"
+              class="done"
+            />
+            <div class="upload-btn" type="submit" name="submit">Upload</div>
+          </div>
+        </div>
+      </header> -->
+    </form>
+    <script
+      type="text/javascript"
+      src="{% static 'js/jquery.min.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'js/add_movies.js' %}"
+    ></script>
+  </body>
+</html>
