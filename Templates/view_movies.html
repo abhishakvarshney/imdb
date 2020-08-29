@@ -27,7 +27,7 @@
     <div class="table-title">
       <h3>Movies Details</h3>
     </div>
-    <form id="searchForm" name="search" method="GET" action="">
+    <form id="searchForm" name="search" method="GET" action="{% url 'movie:search' %}">
       <input type="text" name="q" class="searchBox" placeholder="Search.." />
     </form>
     <table class="table-fill">

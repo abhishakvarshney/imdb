@@ -108,7 +108,8 @@ def delete_movie(request, movie_name):
     return HttpResponseRedirect(reverse('movie:view'))
 
 
-# @parser_classes([JSONParser, MultiPartParser, FormParser])
-# def search_movie(request, movie_name):
-    # movie_list = models.Movies.search_movie(movie_name)
-    # return render(request, "view_movies.html", {'movie_list': movie_list, 'range': range(1, len(movie_list))})
+@parser_classes([JSONParser, MultiPartParser, FormParser])
+def search_movie(request):
+    movie_name = request.GET['q']
+    movie_list = models.Movies.search_movie(movie_name)
+    return render(request, "view_movies.html", {'movie_list': movie_list, 'range': range(1, len(movie_list))})
