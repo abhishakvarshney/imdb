@@ -1,0 +1,42 @@
+.body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #dce4e6;
+}
+.logoutWrap {
+    top: 16px;
+    right: 25px;
+    position: absolute;
+}
+.table-fill {
+    background: white;
+    border-radius: 3px;
+    border-collapse: collapse;
+    height: 420px;
+    margin: auto;
+    max-width: 600px;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+}
+
+div.table-title {
+    display: block;
+    margin: auto;
+    max-width: 232px;
+    padding: -20px;
+    width: 100%;
+}
+
+.table-title h3 {
+    color: #000000;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+}
