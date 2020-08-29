@@ -10,22 +10,26 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
     <!-- Core CSS -->
     <link href="{% static 'css/view_movies.css' %}" rel="stylesheet" />
     <link href="{% static 'css/materialForm.css' %}" rel="stylesheet" />
   </head>
   <body>
+    <div class="logoutWrap">
+      <a href="{% url 'movie:add' %}"><button type="button" class="btn btn-info">Add</button></a>
+      <a href="{% url 'movie:login' %}"><button type="button" class="btn btn-dark">Login</button></a>
+    </div>
     <div class="table-title">
       <h3>Movies Details</h3>
     </div>
     <form id="searchForm" name="search" method="GET" action="">
-      <input type="text" name="q" class="searchBox" placeholder="Search..">
+      <input type="text" name="q" class="searchBox" placeholder="Search.." />
     </form>
-    {% if msg %}
-      <p> {{ msg }}</p>
-    {% endif %}
     <table class="table-fill">
       <thead>
         <tr>
@@ -40,19 +44,22 @@
       </thead>
       <tbody class="table-hover">
         {% for data in movie_list %}
-          <tr>
-            <td class="text-center">{{ forloop.counter }}</td>
-            <td class="text-center">{{ data.name }}</td>
-            <td class="text-center">{{ data.director }}</td>
-            <td class="text-center">{{ data.genre }}</td>
-            <td class="text-center">{{ data.popularity }}</td>
-            <td class="text-center">{{ data.imdb_score }}</td>
-            <td class="text-center action">
-              <a href="{% url 'movie:delete' data.name %}"><i class="fa fa-edit"></i></a>
-              <a href="{% url 'movie:delete' data.name %}"><i class="fa fa-trash"></i></a>
-              
-            </td>
-          </tr>
+        <tr>
+          <td class="text-center">{{ forloop.counter }}</td>
+          <td class="text-center">{{ data.name }}</td>
+          <td class="text-center">{{ data.director }}</td>
+          <td class="text-center">{{ data.genre }}</td>
+          <td class="text-center">{{ data.popularity }}</td>
+          <td class="text-center">{{ data.imdb_score }}</td>
+          <td class="text-center action">
+            <a href="{% url 'movie:update' data %}"
+              ><i style="margin-right:10px" class="fa fa-edit"></i
+            ></a>
+            <a href="{% url 'movie:delete' data.name %}"
+              ><i class="fa fa-trash"></i
+            ></a>
+          </td>
+        </tr>
         {% endfor %}
       </tbody>
     </table>

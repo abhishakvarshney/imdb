@@ -152,3 +152,14 @@ input.searchBox {
 form#searchForm {
   text-align: center;
 }
+
+.logoutWrap {
+  top: 16px;
+  right: 25px;
+  position: absolute;
+}
+
+.bottomTable {
+  position: absolute;
+  bottom: 10px;
+}

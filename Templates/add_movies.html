@@ -26,14 +26,14 @@
 
       <header class="" id="header">
         <div class="logoutWrap">
-          <a href=""><button type="button" class="btn btn-info">View</button></a>
-          <a href=""><button type="button" class="btn btn-dark">Logout</button></a>
+          <a href="{% url 'movie:view' %}"><button type="button" class="btn btn-info">View</button></a>
+          <a href="{% url 'movie:logout' %}"><button type="button" class="btn btn-dark">Logout</button></a>
         </div>
         <div class="frame">
           <div class="center">
             <div class="bar"></div>
             <div class="title">Drop JSON file to upload</div>
-            <div class="content dropzone">
+            <div class="content dropzone filename">
               <div class="content">
                 <img
                   src="https://100dayscss.com/codepen/upload.svg"

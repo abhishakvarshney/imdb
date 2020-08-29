@@ -61,7 +61,13 @@ class Movies(models.Model):
             movie_data['director'] = data.director
             movie_data['imdb_score'] = data.imdb_score
             movie_data['popularity'] = data.popularity
-            movie_data['genre'] = ', '.join(ast.literal_eval(data.genre))
+            if isinstance(data.genre, str):
+                try:
+                    movie_data['genre'] = ', '.join(ast.literal_eval(data.genre))
+                except:
+                    movie_data['genre'] = data.genre
+            else:
+                movie_data['genre'] = ', '.join(data.genre)
             data_list.append(movie_data)
         return data_list
 
@@ -101,16 +107,39 @@ class Movies(models.Model):
         @param movie_data:
         @return:
         """
-        movie_data = Movies.objects.filter(name=movie_name)
+        movie_data = Movies.objects.get(name=data.get('name'))
         movie_data.name = data.get('name', movie_data.name)
         movie_data.director = data.get('director', movie_data.director)
         movie_data.imdb_score = data.get('imdb_score', movie_data.imdb_score)
         movie_data.popularity = data.get('popularity', movie_data.popularity)
         movie_data.genre = data.get('genre', movie_data.genre)
-        movies.save()
+        movie_data.save()
         return True
 
+    @staticmethod
+    def search_movies(movie_name):
+        """
 
+        @param movie_data:
+        @return:
+        """
+        response_dict = Movies.objects.filter(name__unaccent__lower__trigram_similar=movie_name)
+        data_list = []
+        for data in response_dict:
+            movie_data = {}
+            movie_data['name'] = data.name
+            movie_data['director'] = data.director
+            movie_data['imdb_score'] = data.imdb_score
+            movie_data['popularity'] = data.popularity
+            if isinstance(data.genre, str):
+                try:
+                    movie_data['genre'] = ', '.join(ast.literal_eval(data.genre))
+                except:
+                    movie_data['genre'] = data.genre
+            else:
+                movie_data['genre'] = ', '.join(data.genre)
+            data_list.append(movie_data)
+        return data_list
 # class Users(models.Model):
 #     """
 #     @return:

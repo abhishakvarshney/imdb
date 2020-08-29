@@ -80,23 +80,15 @@ def add_movie(request):
 @api_view(["GET"])
 @parser_classes([JSONParser, MultiPartParser, FormParser])
 # @permission_required('auth.admin')
-def update_movie(request):
+def update_movie(request, data):
     if request.method == "GET":
-        data = json.loads(request.body.decode("utf-8"))
+        # data = json.loads(request.body.decode("utf-8"))
+        data = ast.literal_eval(data)
         movie_update = models.Movies.update_movies(data)
-        response_dict={}
-        if not movie_update:
-            response_dict["status_code"] = 200
-            response_dict["message"] = "Movies Not Updated"
-            response_dict["result"] = False
-            response_dict["response"] = None
-        else:
-            response_dict["status_code"] = 200
-            response_dict["message"] = "Success"
-            response_dict["result"] = True
-            response_dict["response"] = "Movies Data Updated Successfully"
-        log.d("get movie_activity response = " + str(response_dict))
-        return Response(response_dict, status=201)
+        print("get movie_activity response = " + str(data), type(data))
+        if isinstance(data, dict):
+            data = [data]
+        return render(request, "update_movies.html", {'movie_list': data})
 
 
 # @api_view(["POST"])
@@ -114,3 +106,9 @@ def delete_movie(request, movie_name):
     if is_deleted:
         return HttpResponseRedirect(reverse('movie:view'))
     return HttpResponseRedirect(reverse('movie:view'))
+
+
+# @parser_classes([JSONParser, MultiPartParser, FormParser])
+# def search_movie(request, movie_name):
+    # movie_list = models.Movies.search_movie(movie_name)
+    # return render(request, "view_movies.html", {'movie_list': movie_list, 'range': range(1, len(movie_list))})

@@ -6,7 +6,8 @@ urlpatterns = [
     url(r'^login/', login, name='login'),
     url(r'^logout/', logout, name='logout'),
     path(r'view/', view_movie, name='view'),
-    url(r'^add/', add_movie, name='add'),
-    url(r'^update/', update_movie, name='update'),
+    path(r'add/', add_movie, name='add'),
+    path(r'update/<data>', update_movie, name='update'),
     path(r'delete/<str:movie_name>', delete_movie, name='delete'),
+    # path(r'search/<str:movie_name>', search_movie, name='search'),
 ]
