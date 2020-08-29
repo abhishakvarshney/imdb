@@ -29,6 +29,8 @@ div.table-title {
     max-width: 232px;
     padding: -20px;
     width: 100%;
+    margin-bottom: 30px;
+    margin-top: 60px;
 }
 
 .table-title h3 {

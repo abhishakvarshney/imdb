@@ -17,13 +17,6 @@
   <body>
     <form action="" method="post" id="UploadForm" enctype="multipart/form-data">
       {% csrf_token %}
-      <!--
-        <label for="file">Filename:</label>
-      <input type="file" name="file" id="file" />
-      <br />
-      <input type="submit" name="submit" value="Upload" />
-      -->
-
       <header class="" id="header">
         <div class="logoutWrap">
           <a href="{% url 'movie:view' %}"><button type="button" class="btn btn-info">View</button></a>
@@ -40,7 +33,6 @@
                   class="upload"
                 />
                 <span class="filename"><label for="file">Filename:</label></span>
-                <input type="file" style="display:none;" class="input" name="file" id="file" />
               </div>
             </div>
             <img
@@ -51,6 +43,7 @@
               src="https://100dayscss.com/codepen/checkmark.svg"
               class="done"
             />
+            <input type="file" style="display:none" class="input" name="file" id="file" />
             <div class="upload-btn" type="submit" name="submit">Upload</div>
           </div>
         </div>

@@ -117,7 +117,7 @@ class Movies(models.Model):
         return True
 
     @staticmethod
-    def search_movies(movie_name):
+    def search_movie(movie_name):
         """
 
         @param movie_data:
