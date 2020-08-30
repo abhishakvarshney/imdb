@@ -1,27 +1,14 @@
-import sys
-sys.path.append("..")
 import os
 import ast
 import uuid
 import json
 from django.db import models
 from utility.log import log
-from utility.Exceptions import *
-from utility.utils import GeneralUtils as GU
 from django.http import JsonResponse
-from django.core import serializers
 
 
 # Create your models here.
 __all__ = ["Movies"]
-
-GENDER_MALE = "Male"
-GENDER_FEMALE = "Female"
-
-GENDER_CHOICES = (
-    (GENDER_MALE, "Male"),
-    (GENDER_FEMALE, "Female"),
-)
 
 
 class Movies(models.Model):
@@ -69,6 +56,7 @@ class Movies(models.Model):
             else:
                 movie_data['genre'] = ', '.join(data.genre)
             data_list.append(movie_data)
+        log.info("View data preparation Succcess")
         return data_list
 
     @classmethod
@@ -84,6 +72,7 @@ class Movies(models.Model):
         imdb_score = data.get("imdb_score", ""),
         popularity = data.get('99popularity', ''),
         genre = data.get('genre', ''))
+        log.info("Movie Data Added")
         return True
 
     @staticmethod
@@ -100,6 +89,7 @@ class Movies(models.Model):
                 movie.isActive = False
                 movie.save()
                 count+=1
+        log.info("Movie Deleted Successfully")
         return True
 
     @staticmethod
@@ -117,6 +107,7 @@ class Movies(models.Model):
             movie_data.popularity = data.get('popularity', movie_data.popularity)
             movie_data.genre = data.get('genre', movie_data.genre)
             movie_data.save()
+        log.info("Movie Updated Successfully")
         return True
 
     @staticmethod
@@ -142,25 +133,5 @@ class Movies(models.Model):
             else:
                 movie_data['genre'] = ', '.join(data.genre)
             data_list.append(movie_data)
+        log.info("Movie Searched Successfully")
         return data_list
-
-
-
-# class Users(models.Model):
-#     """
-#     @return:
-#     """
-
-#     class Meta:
-#         """
-#         @return:
-#         """
-#         db_table = "User"
-
-#     user_id = models.CharField(max_length=255, primary_key=True, default=uuid.uuid4, editable=False)
-#     name = models.TextField(null=True, blank=True)
-#     isActive = models.BooleanField(default=True)
-#     gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default="Male")
-#     createdOn = models.DateTimeField(auto_now_add=True)
-#     updatedOn = models.DateTimeField(auto_now=True)
-    

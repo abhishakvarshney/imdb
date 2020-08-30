@@ -75,10 +75,10 @@ WSGI_APPLICATION = 'imdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-MYSQL_HOSTNAME = os.getenv('MYSQL_HOSTNAME', 'localhost')
+MYSQL_HOSTNAME = os.getenv('MYSQL_HOSTNAME', 'mysql')
 MYSQL_DBNAME = os.getenv('MYSQL_DBNAME', 'platform_imdb')
-MYSQL_USER = os.getenv('MYSQL_USER', 'root')
-MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD', 'abhishak')
+MYSQL_USER = os.getenv('MYSQL_USER', 'platform_admin')
+MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD', 'dev_env')
 
 
 DATABASES = {
