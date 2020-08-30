@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 body {
+  width: 100vh;
   background-color: #eff5fb;
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
@@ -26,8 +27,11 @@ div.table-title {
   font-family: "Roboto", helvetica, arial, sans-serif;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
-  margin-top: -280px;
-  margin-left: 350px;
+  position: absolute;
+  top: 83px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
 }
 
 /*** Table Styles **/
@@ -38,13 +42,11 @@ div.table-title {
   border-collapse: collapse;
   height: 320px;
   margin: auto;
-  max-width: 600px;
   padding: 5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
   margin-top: 140px;
-  margin-left: -1240px;
 }
 
 th {
@@ -191,4 +193,15 @@ form#searchForm {
 .btn:hover {
 	background: rebeccapurple;
 	box-shadow: 0 3px 0 0 deeppink;
+}
+
+
+form#searchForm {
+  position: absolute;
+  top: 44px;
+}
+
+.table-fill{
+  position: absolute;
+  top: 6px;
 }
