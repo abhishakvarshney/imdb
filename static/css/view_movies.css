@@ -28,7 +28,7 @@ div.table-title {
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
   position: absolute;
-  top: 83px;
+  top: 21px;
   left: 0px;
   width: 100%;
   text-align: center;
@@ -169,6 +169,7 @@ form#searchForm {
   top: 16px;
   right: 25px;
   position: absolute;
+  z-index: 999;
 }
 
 .bottomTable {
@@ -198,10 +199,13 @@ form#searchForm {
 
 form#searchForm {
   position: absolute;
-  top: 44px;
+  top: 104px;
+  left: 99px;
 }
-
-.table-fill{
+.table-fill {
   position: absolute;
-  top: 6px;
+  top: 152px;
+  padding: 0px 10px 0px 10px;
+  margin: 10px 13px;
+  width: 98%;
 }
